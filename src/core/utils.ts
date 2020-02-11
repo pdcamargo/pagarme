@@ -1,4 +1,22 @@
+import { ChargebackInterface } from '../interfaces/chargeback.interface'
 import { TransactionInterface } from '../interfaces/transaction.interface'
+
+export function sanatizeChargebackObject (chargeback: ChargebackInterface, isCreditCard: boolean): ChargebackInterface {
+  const copyChargebackObject = chargeback
+
+  if (isCreditCard) {
+    delete copyChargebackObject.agencia
+    delete copyChargebackObject.agencia_dv
+    delete copyChargebackObject.bank_code
+    delete copyChargebackObject.conta
+    delete copyChargebackObject.conta_dv
+    delete copyChargebackObject.document_number
+    delete copyChargebackObject.legal_name
+    delete copyChargebackObject.type
+  }
+
+  return copyChargebackObject
+}
 
 export function sanatizeTransactionObject (transaction: TransactionInterface): TransactionInterface {
   const copyTransaction = transaction
