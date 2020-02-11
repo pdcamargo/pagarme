@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 export interface AddressInterface {
+  object?: 'address'
   street: string
   street_number: string
   zipcode: string

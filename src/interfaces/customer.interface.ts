@@ -13,10 +13,7 @@ export interface CustomerInterface {
   ]
   phone_numbers: string[]
   birthday: string
-}
-
-export interface PagarmeCustomerInterface extends CustomerInterface {
-  object: 'customer'
-  id: number
-  date_created: Date
+  object?: 'customer'
+  id?: number
+  date_created?: Date
 }
