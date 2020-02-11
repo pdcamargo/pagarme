@@ -6,9 +6,10 @@ import TransactionService from '../services/transaction.service'
 class TransactionController {
   public async createTransaction (req: Request, res: Response): Promise<Response> {
     const { companyId } = req.params
-    const card: TransactionInterface = req.body
+    const transactionParams: TransactionInterface = req.body
+    const transaction = await TransactionService.createTransaction(parseInt(companyId), transactionParams)
     return res.send({
-      data: await TransactionService.createTransaction(parseInt(companyId), card)
+      transaction
     })
   }
 }
