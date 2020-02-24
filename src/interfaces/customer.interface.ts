@@ -2,7 +2,7 @@
 export interface CustomerInterface {
   external_id: string
   name: string
-  type: string
+  type: 'individual'|'corporation'
   country: string
   email: string
   documents: [
